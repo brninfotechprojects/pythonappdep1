@@ -10,7 +10,7 @@ function Login() {
   let navigate = useNavigate();
   let dispatch = useDispatch();
 
-  axios.defaults.baseURL = "http://localhost:8000";
+  axios.defaults.baseURL = "";
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -29,10 +29,7 @@ function Login() {
       body: dataToSend,
     };
 
-    let JSONData = await fetch(
-      "http://localhost:8000/validateToken",
-      reqOptions
-    );
+    let JSONData = await fetch("/validateToken", reqOptions);
 
     let JSOData = await JSONData.json();
     console.log(JSOData);
@@ -85,7 +82,7 @@ function Login() {
         body: dataToSend,
       };
 
-      let JSONData = await fetch("http://localhost:8000/login", reqOptions);
+      let JSONData = await fetch("/login", reqOptions);
 
       let JSOData = await JSONData.json();
 

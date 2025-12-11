@@ -17,7 +17,7 @@ function Dashboard() {
       method: "DELETE",
     };
 
-    let url = `http://localhost:8000/deleteProfile?email=${storeObj.loginDetails.user.email}`;
+    let url = `/deleteProfile?email=${storeObj.loginDetails.user.email}`;
 
     let JSONData = await fetch(url, reqOptions);
 
@@ -89,9 +89,7 @@ function Dashboard() {
       >
         Fire Employee
       </button>
-      <img
-        src={`http://localhost:8000/${storeObj.loginDetails.user.profilePic}`}
-      ></img>
+      <img src={`/${storeObj.loginDetails.user.profilePic}`}></img>
     </div>
   );
 }
