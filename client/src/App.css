@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+
+form{
+  display:inline-block;
+  padding:20px;
+  background-color: deepskyblue;
+}
+
+form label{
+  display:inline-block;
+  width:100px;
+}
+
+form div{
+  margin:15px;
+}
+
+.profiePicPreview{
+  width:150px;
+  height:150px;
+  border:1px solid gray;
+  object-fit: contain;
+}
+
+nav{
+  background-color: bisque;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 2rem;
+}

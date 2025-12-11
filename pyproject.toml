@@ -1,0 +1,17 @@
+[project]
+name = "post"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "bcrypt>=5.0.0",
+    "email-validator>=2.3.0",
+    "fastapi>=0.121.2",
+    "motor>=3.7.1",
+    "pydantic>=2.12.4",
+    "pyjwt>=2.10.1",
+    "pymongo>=4.15.4",
+    "python-multipart>=0.0.20",
+    "uvicorn>=0.38.0",
+]
