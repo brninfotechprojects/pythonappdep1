@@ -38,8 +38,7 @@ app.add_middleware(
 )
 
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
-# Serve React build folder
-app.mount("/", StaticFiles(directory="client/build", html=True), name="client")
+
 
 # ---------- MongoDB ----------
 mongo_client = AsyncIOMotorClient(
@@ -332,7 +331,8 @@ async def delete_profile(email: str):
 
     return {"status": "success", "msg": "Profile deleted successfully"}
 
-
+# Serve React build folder
+app.mount("/", StaticFiles(directory="client/build", html=True), name="client")
 
 # ---------- Main ----------
 def main():
