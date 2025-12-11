@@ -26,7 +26,7 @@ function Dashboard() {
     console.log(JSOData.msg);
     alert(JSOData.msg);
 
-    if (JSOData.status == "success") {
+    if (JSOData.status === "success") {
       navigate("/");
     }
   };
