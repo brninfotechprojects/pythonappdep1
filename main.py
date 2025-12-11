@@ -52,9 +52,6 @@ UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 
-@app.get("/{full_path:path}")
-async def spa_fallback(full_path: str):
-    return FileResponse("client/build/index.html")
 
 
 
@@ -333,6 +330,10 @@ async def delete_profile(email: str):
 
 # Serve React build folder
 app.mount("/", StaticFiles(directory="client/build", html=True), name="client")
+
+@app.get("/{full_path:path}")
+async def spa_fallback(full_path: str):
+    return FileResponse("client/build/index.html")
 
 # ---------- Main ----------
 def main():
