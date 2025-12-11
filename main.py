@@ -8,6 +8,7 @@ from fastapi.staticfiles import StaticFiles
 from datetime import datetime, timedelta
 import jwt
 import bcrypt
+from fastapi.responses import FileResponse
 
 
 # ---------- Config ----------
@@ -37,6 +38,8 @@ app.add_middleware(
 )
 
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
+# Serve React build folder
+app.mount("/", StaticFiles(directory="client/build", html=True), name="client")
 
 # ---------- MongoDB ----------
 mongo_client = AsyncIOMotorClient(
@@ -48,6 +51,13 @@ users_coll = db["users"]
 # ---------- Upload folder ----------
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
+
+
+@app.get("/{full_path:path}")
+async def spa_fallback(full_path: str):
+    return FileResponse("client/build/index.html")
+
+
 
 # ---------- Signup endpoint ----------
 @app.post("/signup")
