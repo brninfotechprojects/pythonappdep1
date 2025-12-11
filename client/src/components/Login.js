@@ -58,7 +58,7 @@ function Login() {
       body: dataToSend,
     };
 
-    let JSONData = await fetch("http://localhost:8000/login", reqOptions);
+    let JSONData = await fetch("/login", reqOptions);
 
     let JSOData = await JSONData.json();
     console.log(JSOData);
